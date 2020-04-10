@@ -65,10 +65,10 @@ import UploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapte
 import RestrictedEditingMode from '@ckeditor/ckeditor5-restricted-editing/src/restrictededitingmode'; // eslint-disable-line no-unused-vars
 import StandardEditingMode from '@ckeditor/ckeditor5-restricted-editing/src/standardeditingmode';
 
-export default class ClassicEditor extends ClassicEditorBase {}
+export default class ClassicEditorX extends ClassicEditorBase {}
 
 // Plugins to include in the build.
-ClassicEditor.builtinPlugins = [
+ClassicEditorX.builtinPlugins = [
 	Alignment,
 	Autoformat,
 	Autosave,
@@ -128,7 +128,7 @@ ClassicEditor.builtinPlugins = [
 ];
 
 // Editor configuration.
-ClassicEditor.defaultConfig = {
+ClassicEditorX.defaultConfig = {
 	toolbar: {
 		items: [
 			'heading',
