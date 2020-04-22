@@ -3,10 +3,11 @@
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
-// The editor creator to use.
+// the editor creator to use
 import ClassicEditorBase from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
 
+// reflective of the plugins used
 import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
 import Autosave from '@ckeditor/ckeditor5-autosave/src/autosave';
@@ -60,14 +61,17 @@ import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformatio
 import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline';
 import UploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter';
 
-// use one or the other as a plugin, not both
+// use one or the other as a plugin, not both at the same time
 import RestrictedEditingMode from '@ckeditor/ckeditor5-restricted-editing/src/restrictededitingmode'; // eslint-disable-line no-unused-vars
 import StandardEditingMode from '@ckeditor/ckeditor5-restricted-editing/src/standardeditingmode';
 
-export default class ClassicEditor extends ClassicEditorBase {}
+// **IMPORTANT**
+// see https://ckeditor.com/docs/cs/latest/examples/editor-bundle/editor-bundle-nodejs.html#editor-build-configuration
 
-// Plugins to include in the build.
-ClassicEditor.builtinPlugins = [
+class CKEditorCS extends ClassicEditorBase {}
+
+// plugins to include in the build
+CKEditorCS.builtinPlugins = [
 	Alignment,
 	Autoformat,
 	Autosave,
@@ -126,7 +130,7 @@ ClassicEditor.builtinPlugins = [
 ];
 
 // Editor configuration.
-ClassicEditor.defaultConfig = {
+CKEditorCS.defaultConfig = {
 	toolbar: {
 		items: [
 			'heading',
@@ -171,6 +175,9 @@ ClassicEditor.defaultConfig = {
 		],
 		tableToolbar: [ 'comment' ]
 	},
-	// This value must be kept in sync with the language defined in webpack.config.js.
+	// **IMPORTANT**
+	// this value must be kept in sync with the language defined in webpack.config.js
 	language: 'en'
 };
+
+export default CKEditorCS;
