@@ -47,7 +47,9 @@ the hash will not change before and after you bump the version number.
 changes are fine. Comment and whitespace changes that don't affect operation
 will change the hash for no good reason. That causes unnecessary complexity.
 
-Publishing: push to the public npm repo via `npm publish . --access public`
+Publishing: make sure the `npm run build` step completed above and that you
+bumped the version number in package.json, and have done a local commit and
+also push to remote. Push to public npm via `npm publish . --access public`
 then see https://www.npmjs.com/package/@activewrite/ckeditor5-build-classic.
 This needs to be a public npm repo for now to make Netlify builds simple.
 

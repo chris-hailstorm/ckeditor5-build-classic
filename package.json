@@ -101,11 +101,6 @@
     "build/**",
     "packages/**"
   ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "publish-config": {
     "access": "public"
   }
