@@ -1,6 +1,6 @@
 {
   "name": "@activewrite/ckeditor5-build-classic",
-  "version": "18.0.3",
+  "version": "18.0.6",
   "description": "AW fork of ckeditor5-build-classic.",
   "keywords": [
     "ckeditor5-build",
@@ -20,7 +20,7 @@
     "real-time",
     "framework"
   ],
-  "main": "./build/ckeditor.js",
+  "main": "./build/ckeditorcs.js",
   "files": [
     "build"
   ],
@@ -83,7 +83,8 @@
     "url": "https://github.com/ckeditor/ckeditor5-build-classic.git"
   },
   "scripts": {
-    "build": "webpack --mode production",
+    "build": "webpack --mode production && npm run sha1sum",
+    "sha1sum": "bash ./get-sha1sum.sh",
     "lint": "eslint --quiet '**/*.js'",
     "stylelint": "stylelint --quiet --allow-empty-input 'theme/**/*.css' 'docs/**/*.css'",
     "preversion": "npm run build; if [ -n \"$(git status src/ckeditor.js build/ --porcelain)\" ]; then git add -u src/ckeditor.js build/ && git commit -m 'Internal: Build.'; fi"
