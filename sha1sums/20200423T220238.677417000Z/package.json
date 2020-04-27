@@ -1,29 +1,4 @@
 {
-  "name": "@activewrite/ckeditor5-build-classic",
-  "version": "18.0.6",
-  "description": "AW fork of ckeditor5-build-classic.",
-  "keywords": [
-    "ckeditor5-build",
-    "ckeditor",
-    "ckeditor5",
-    "ckeditor 5",
-    "wysiwyg",
-    "rich text",
-    "editor",
-    "html",
-    "contentEditable",
-    "editing",
-    "operational transformation",
-    "ot",
-    "collaboration",
-    "collaborative",
-    "real-time",
-    "framework"
-  ],
-  "main": "./build/ckeditorcs.js",
-  "files": [
-    "build"
-  ],
   "devDependencies": {
     "@ckeditor/ckeditor5-adapter-ckfinder": "^18.0.0",
     "@ckeditor/ckeditor5-alignment": "^18.0.0",
@@ -31,8 +6,8 @@
     "@ckeditor/ckeditor5-autosave": "^18.0.0",
     "@ckeditor/ckeditor5-basic-styles": "^18.0.0",
     "@ckeditor/ckeditor5-block-quote": "^18.0.0",
-    "@ckeditor/ckeditor5-code-block": "^18.0.0",
     "@ckeditor/ckeditor5-ckfinder": "^18.0.0",
+    "@ckeditor/ckeditor5-code-block": "^18.0.0",
     "@ckeditor/ckeditor5-core": "^18.0.0",
     "@ckeditor/ckeditor5-dev-utils": "^12.0.9",
     "@ckeditor/ckeditor5-dev-webpack-plugin": "^8.0.9",
@@ -55,54 +30,30 @@
     "@ckeditor/ckeditor5-restricted-editing": "^18.0.0",
     "@ckeditor/ckeditor5-special-characters": "^18.0.0",
     "@ckeditor/ckeditor5-table": "^18.0.0",
-    "@ckeditor/ckeditor5-typing": "^18.0.0",
     "@ckeditor/ckeditor5-theme-lark": "^18.0.0",
+    "@ckeditor/ckeditor5-typing": "^18.0.0",
     "eslint": "^5.5.0",
     "eslint-config-ckeditor5": "^2.0.0",
     "husky": "^1.3.1",
     "lint-staged": "^7.0.0",
-    "stylelint": "^11.1.1",
-    "stylelint-config-ckeditor5": "^1.0.0",
     "postcss-loader": "^3.0.0",
     "raw-loader": "^3.1.0",
     "style-loader": "^1.0.0",
+    "stylelint": "^11.1.1",
+    "stylelint-config-ckeditor5": "^1.0.0",
     "terser-webpack-plugin": "^2.2.1",
     "webpack": "^4.39.1",
     "webpack-cli": "^3.3.6"
   },
-  "engines": {
-    "node": ">=8.0.0",
-    "npm": ">=5.7.1"
-  },
-  "author": "ActiveWrite via CKSource",
-  "license": "GPL-2.0-or-later",
-  "homepage": "https://ckeditor.com/ckeditor-5",
-  "bugs": "https://github.com/ckeditor/ckeditor5/issues",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ckeditor/ckeditor5-build-classic.git"
-  },
-  "scripts": {
-    "webpack": "webpack --mode production",
-    "build": "npm run webpack && npm run sha1sum",
-    "sha1sum": "bash ./get-sha1sum.sh",
-    "lint": "eslint --quiet '**/*.js'",
-    "stylelint": "stylelint --quiet --allow-empty-input 'theme/**/*.css' 'docs/**/*.css'",
-    "preversion": "npm run build; if [ -n \"$(git status src/ckeditor.js build/ --porcelain)\" ]; then git add -u src/ckeditor.js build/ && git commit -m 'Internal: Build.'; fi"
-  },
-  "lint-staged": {
-    "**/*.js": [
-      "eslint --quiet"
-    ],
-    "**/*.css": [
-      "stylelint --quiet --allow-empty-input"
-    ]
-  },
-  "eslintIgnore": [
-    "build/**",
-    "packages/**"
+  "files": [
+    "build"
   ],
-  "publish-config": {
-    "access": "public"
+  "main": "./build/ckeditorcs.js",
+  "scripts": {
+    "build": "webpack --mode production && npm run sha1sum",
+    "lint": "eslint --quiet '**/*.js'",
+    "preversion": "npm run build; if [ -n \"$(git status src/ckeditor.js build/ --porcelain)\" ]; then git add -u src/ckeditor.js build/ && git commit -m 'Internal: Build.'; fi",
+    "sha1sum": "bash ./get-sha1sum.sh",
+    "stylelint": "stylelint --quiet --allow-empty-input 'theme/**/*.css' 'docs/**/*.css'"
   }
 }
